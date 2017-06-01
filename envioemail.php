@@ -1,14 +1,16 @@
 <?php
 
+	// Opción 4
+
 	$to = "destinatario@dominio.es";
-    $subject = "Testeando mail";
-    $message = "Hello! This is a simple email message.";
-    $from = "remitente@dominio.es";
-    $headers = "From:" . $from;
+	$subject = "Testeando mail";
+	$message = "Hello! This is a simple email message.";
+	$from = "remitente@dominio.es";
+	$headers = "From:" . $from;
 
 	mail($to, $subject, $message, $headers);
-    echo "Mail Sent to destinatario@dominio.es.";
-    exit("Fin");
+	echo "Mail Sent to destinatario@dominio.es.";
+	exit("Fin");
 
 
 	// Opción 3
@@ -17,11 +19,11 @@
 	//Titulo
 	$titulo = "Título";
 	//cabecera
-	$headers = "MIME-Version: 1.0\r\n"; 
-	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-	//dirección del remitente 
+	$headers = "MIME-Version: 1.0\r\n";
+	$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+	//dirección del remitente
 	$headers .= "From: Geeky < remitente@dominio.es >\r\n";
-	//Enviamos el mensaje a tu_dirección_email 
+	//Enviamos el mensaje a tu_dirección_email
 	$bool = mail("destinatario@dominio.es",$titulo,$mail,$headers);
 	if($bool){
 	    echo "Mensaje enviado";
@@ -30,24 +32,24 @@
 		}
 
 
-
-	// Opción 2	
+	// Opción 2
 
 	$to = "destinatario@dominio.es, destinatario2@dominio.es, destinatario3@dominio.es";
 	$subject = "Asunto del email";
 	$message = "Envío de email con PHP";
 	$headers = "From: remitente@dominio.es" . "\r\n" . "CC: remitente2@dominio.es";
-	 
+
 	mail($to, $subject, $message, $headers);
 
 
 
-	// Opción 1	
+	// Opción 1
 
 	// Género un randomke
 	$random_key = generate_random_key();
 	$validated = 0;
 	$email = "kodeispoetry@gmail.com";
+
 	// Enviar un mensaje para confirmar la dirección de email introducida
 	mail($email,"Activación de la cuenta",
 				     "Gracias por registrarse en nuestro sitio.
@@ -57,15 +59,15 @@
 				     http://activate.php?activation=".$random_key);
 
 
-	
+
 	function generate_random_key() {
 	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-	 
+
 	    $new_key = "";
 	    for ($i = 0; $i < 32; $i++) {
 	        $new_key .= $chars[rand(0,35)];
 	    }
 	    return $new_key;
-	} 
+	}
 
 ?>
