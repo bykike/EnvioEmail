@@ -4,12 +4,12 @@
 
 	$to = "destinatario@dominio.es";
 	$subject = "Testeando mail";
-	$message = "Hello! This is a simple email message.";
+	$message = "Hola! Esto es un simple mensaje de ejemplo.";
 	$from = "remitente@dominio.es";
 	$headers = "From:" . $from;
 
 	mail($to, $subject, $message, $headers);
-	echo "Mail Sent to destinatario@dominio.es.";
+	echo "Mail enviado a destinatario@dominio.es.";
 	exit("Fin");
 
 
