@@ -1,6 +1,20 @@
 
 <?php
 
+
+
+	// Opción 6
+
+		$to = "destinatario@dominio.es";
+		$subject = "Activación";
+		$body = "<html><head><title>Clave de activación. </title></head>";
+		$body .= "<body>Su clave de activación es $claveactiva . <br><br>";
+		$body .= "Cualquier problema envíe un email soporte@dominio.es</body></html>";
+		$header = "MIME-Version: 1.0\n";
+		$header .= "Content-type: text/html; charset=iso-8859-1\n";
+		$header .= "From: Hola <remitente@dominio.es>\r\n";
+		mail($to, $subject, $body, $header);
+
 	// Opción 5
 
 	function sendemail($mail_username,$mail_userpassword,$mail_setFromEmail,$mail_setFromName,$mail_addAddress,$txt_message,$mail_subject, $template){
