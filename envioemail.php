@@ -1,6 +1,35 @@
 
 <?php
 
+	// Opción 7
+
+    //Importamos las variables del formulario usamos @ para anular los avisos por error
+    //que pueda generar la variable.
+    @$name = addslashes($_POST['name']);
+    @$email = addslashes($_POST['email']);
+    @$asunto = addslashes($_POST['subject']);
+    @$message = addslashes($_POST['message']);
+    //Preparamos el mensaje de contacto
+    $cabeceras = "From: remitente@dominio.es\n" //La persona que envia el correo
+     . "Reply-To: remitente@dominio.es\n";
+    $asunto = "Contacto desde la web de Kike"; //El asunto
+    $email_to = "destinatario@dominio.es"; //cambiar por tu email
+    $contenido = "Se ha enviado el siguiente mensaje:\n"
+    . "\n"
+    . "Hola\n"
+    . "\n";
+
+    if (@mail($email_to, $asunto ,$contenido ,$cabeceras )) {
+	//Si el mensaje se envía muestra una confirmación
+	//header('Location: contacta.htm');
+
+	die("Gracias, su mensaje ha sido enviado.");
+
+
+	}else{
+	//Si el mensaje no se envía muestra el mensaje de error
+	die("Error: Su mensaje no pudo ser enviado, inténtelo más tarde");
+	}
 
 
 	// Opción 6
@@ -96,7 +125,7 @@
 	// Genero un randomke
 	$random_key = generate_random_key();
 	$validated = 0;
-	$email = "kodeispoetry@gmail.com";
+	$email = "destinatario@dominio.es";
 
 	// Enviar un mensaje para confirmar la dirección de email introducida
 	mail($email,"Activación de la cuenta",
